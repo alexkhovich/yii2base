@@ -9,11 +9,15 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
+    'language'=>'ru-RU',
+    'name'=>'Администрирование',
+    'timeZone' => 'Europe/Minsk',
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
         'request' => [
+            'baseUrl' => '',
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [
@@ -37,14 +41,19 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => "site/index",
+                'login' => "site/login",
+                'logout' => "site/logout",
             ],
         ],
-        */
+        'assetManager' => [
+            'basePath' => '@webroot/assets',
+            'baseUrl' => '@web/assets'
+        ],
     ],
     'params' => $params,
 ];

@@ -10,9 +10,13 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language'=>'ru-RU',
+    'name'=>'Фронтенд',
+    'timeZone' => 'Europe/Minsk',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
+            'baseUrl' => '',
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
@@ -36,14 +40,22 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => "site/index",
+                'contact' => 'site/contact',
+                'about' => 'site/about',
+                'signup' => 'site/signup',
+                'login' => 'site/login',
+                'logout' => 'site/logout',
             ],
         ],
-        */
+        'assetManager' => [
+            'basePath' => '@webroot/assets',
+            'baseUrl' => '@web/assets'
+        ],
     ],
     'params' => $params,
 ];
